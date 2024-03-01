@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestController;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
@@ -79,5 +80,17 @@ Route::get('posts', [PostController::class, 'index'])->name('posts');
 |---------------------------------------------------------------------------
 */
 Route::get('test', [TestController::class, 'index']);
+
+
+/*
+|---------------------------------------------------------------------------
+| Category crud with modal
+|---------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('index');
+    Route::post('store-update', [CategoryController::class, 'storeUpdate'])->name('store_update');
+    Route::delete('delete/{alert}', [CategoryController::class, 'destroy'])->name('destroy');
+});
 
 
