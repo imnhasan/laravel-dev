@@ -93,4 +93,15 @@ Route::group(['prefix' => 'categories', 'as' => 'category.'], function () {
     Route::delete('delete/{alert}', [CategoryController::class, 'destroy'])->name('destroy');
 });
 
-
+/*
+|---------------------------------------------------------------------------
+| Image crud with modal
+|---------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'images', 'as' => 'image'], function () {
+    Route::get('/', [ImageController::class, 'index'])->name('index');
+    Route::post('store', [ImageController::class, 'storeUpdate'])->name('store');
+    Route::get('edit/{image}', [ImageController::class, 'index'])->name('edit');
+    Route::put('update/{image}', [ImageController::class, 'storeUpdate'])->name('update');
+    Route::delete('delete/{alert}', [ImageController::class, 'destroy'])->name('destroy');
+});
