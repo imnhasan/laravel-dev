@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-old')
 
 @section('content')
     <div class="container">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                {{ $students->links() }}
+                    {{ $students->links() }}
                 </div>
             </div>
         </div>

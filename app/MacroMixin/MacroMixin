@@ -1,0 +1,19 @@
+<?php
+
+namespace App\MacroMixin;
+
+class MacroMixin {
+    public function partNumber()
+    {
+        return function ($part) {
+            return 'Hello Macro';
+        };
+    }
+
+    public function prefix()
+    {
+        return function ($string, $prefix) {
+            return $prefix . $string;
+        };
+    }
+}

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-old')
 
 @section('content')
     <div class="container">
@@ -17,9 +17,9 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-{{--                            <td>{{ $user->logins()->latest()->first()->created_at->diffForHumans() }}</td>--}}
-{{--                            <td>{{ $user->logins->sortBYDesc('created_at')->first()->created_at->diffForHumans() }}</td>--}}
-{{--                            <td>{{ $user->last_login_at }}</td>--}}
+                            {{--                            <td>{{ $user->logins()->latest()->first()->created_at->diffForHumans() }}</td>--}}
+                            {{--                            <td>{{ $user->logins->sortBYDesc('created_at')->first()->created_at->diffForHumans() }}</td>--}}
+                            {{--                            <td>{{ $user->last_login_at }}</td>--}}
                             <td>{{ $user->last_login_at->diffForHumans() }}</td>
                         </tr>
                     @endforeach

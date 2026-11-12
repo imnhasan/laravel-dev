@@ -9,8 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -59,7 +60,7 @@ class User extends Authenticatable
 
     public function post()
     {
-        return $this->hasMany(Post::class, 'auhtor_id');
+        return $this->hasOne(Post::class, 'author_id');
     }
 
     public function logins()
@@ -108,6 +109,29 @@ class User extends Authenticatable
     {
 //        return $this->hasOne(Login::class)->latest();
         return $this->hasOne(Login::class)->latest()->take(1);
+    }
+
+
+    // Add these methods for JWTSubject
+
+    /**
+     * Get the identifier that will be stored in the JWT token
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return custom claims to add to the JWT token
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 
 

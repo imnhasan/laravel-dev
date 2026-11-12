@@ -68,6 +68,8 @@ class DatabaseSeeder extends Seeder
 //           );
 //        });
 
+        User::factory()->count(30000)->create();
+
         $this->call(RolesAndPermissionsSeeder::class);
 
     }
