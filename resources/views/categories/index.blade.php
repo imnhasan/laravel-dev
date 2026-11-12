@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-old')
 
 @section('content')
 
@@ -12,13 +12,16 @@
     <!--begin::Actions-->
     <div class="d-flex align-items-center gap-2 gap-lg-3">
         <!--begin::Secondary button-->
-        <a href="javascript:void(0)" onclick="addAlertModal()" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary" data-bs-toggle="modal" data-bs-target="#modal_alert">Add Alert</a>
+        <a href="javascript:void(0)" onclick="addAlertModal()"
+           class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary" data-bs-toggle="modal"
+           data-bs-target="#modal_alert">Add Alert</a>
         <!--end::Secondary button-->
     </div>
     <!--end::Actions-->
 
     @if ( session('success') || session('error') )
-        <div class="alert {{ session('success') ? 'bg-light-success alert-success' : 'bg-light-danger alert-danger'}} alert-dismissible" role="alert">
+        <div class="alert {{ session('success') ? 'bg-light-success alert-success' : 'bg-light-danger alert-danger'}} alert-dismissible"
+             role="alert">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             <div class="alert-message">
                 <span class="{{ session('success') ? 'text-success' : 'text-danger'}}">{{ session('success') ?? session('error') }}</span>
@@ -58,9 +61,12 @@
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                         <span class="svg-icon svg-icon-1">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"/>
-									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"/>
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                          transform="rotate(-45 6 17.3137)" fill="currentColor"/>
+									<rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                          transform="rotate(45 7.41422 6)" fill="currentColor"/>
 								</svg>
 							</span>
                         <!--end::Svg Icon-->
@@ -85,7 +91,9 @@
                         <div class="row g-9 mb-8">
                             <div class="col-md-6 fv-row">
                                 <label for="formPrice" class="required fs-6 fw-semibold mb-2">Price</label>
-                                <input id="formPrice" name="price" type="text" min="0" step="any" class="form-control form-control-solid" placeholder="Enter Target Price" autocomplete="off"/>
+                                <input id="formPrice" name="price" type="text" min="0" step="any"
+                                       class="form-control form-control-solid" placeholder="Enter Target Price"
+                                       autocomplete="off"/>
                             </div>
                         </div>
                         <!--end::Input group-->
@@ -93,10 +101,11 @@
                         <input type="hidden" id="id" name="id">
 
 
-
                         <!--begin::Actions-->
                         <div class="text-center">
-                            <button type="reset" id="formCancelBtn" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                            <button type="reset" id="formCancelBtn" class="btn btn-light me-3" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
                             <button type="submit" id="formSubmitBtn" class="btn btn-primary">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...

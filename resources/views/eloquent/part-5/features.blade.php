@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-old')
 
 @section('content')
     <div class="container">
@@ -38,13 +38,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach($features as $feature)
-                            <tr>
-                                <td>{{ $feature->title }}</td>
-                                <td><span class="badge bg-primary">{{ $feature->status }}</span></td>
-                                <td>{{ $feature->comments_count }} comments</td>
-                            </tr>
-                        @endforeach
+                    @foreach($features as $feature)
+                        <tr>
+                            <td>{{ $feature->title }}</td>
+                            <td><span class="badge bg-primary">{{ $feature->status }}</span></td>
+                            <td>{{ $feature->comments_count }} comments</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 {{ $features->links() }}
